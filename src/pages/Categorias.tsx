@@ -2,12 +2,35 @@ import { FunctionComponent } from "react";
 import Pagina from "../components/Pagina";
 
 const CategoriasPage: FunctionComponent = () => {
+
+	const categorias = [
+		{
+			id: 1,
+			nome: 'Móveis',
+			idPai: null
+		},
+		{
+			id: 2,
+			nome: 'Eletrônicos',
+			idPai: null
+		},
+		{
+			id: 3,
+			nome: 'Publicações',
+			idPai: null
+		},
+	]
+
 	return (
 		<Pagina titulo="Categorias">
 			<ul>
-				<li>Moveis</li>
-				<li>Eletrônicos</li>
-				<li>Publicações</li>
+			{
+				categorias.map( categoria =>
+					<li>
+						{ categoria.nome }
+					</li>
+				)
+			}
 			</ul>
 		</Pagina>
 	)
