@@ -1,8 +1,10 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent } from "react"
+import Pagina from '../components/Pagina'
 
 const HomePage: FunctionComponent = () => {
 	return (
-		<p>Home</p>
+		<Pagina titulo="Home">
+		</Pagina>
 	)
 }
 
