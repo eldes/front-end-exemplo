@@ -1,25 +1,11 @@
-import { FunctionComponent } from "react";
-import Pagina from "../components/Pagina";
+import { FunctionComponent, useState } from 'react'
+import Pagina from '../components/Pagina'
+import Categoria from '../models/categoria'
+import categoriasService from '../services/categorias'
 
 const CategoriasPage: FunctionComponent = () => {
 
-	const categorias = [
-		{
-			id: 1,
-			nome: 'Móveis',
-			idPai: null
-		},
-		{
-			id: 2,
-			nome: 'Eletrônicos',
-			idPai: null
-		},
-		{
-			id: 3,
-			nome: 'Publicações',
-			idPai: null
-		},
-	]
+	const [categorias, setCategorias] = useState<Categoria[]>(categoriasService.lerTodas())
 
 	return (
 		<Pagina titulo="Categorias">
