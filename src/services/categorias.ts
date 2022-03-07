@@ -1,10 +1,17 @@
+import axios from "axios"
+import Categoria from "../models/categoria"
+
+type lerCategoriasCallback = (categorias: Categoria[]) => void
+
 const categoriasService = {
-	lerTodas: () => {
-		return categoriasMock
+	lerTodas: (callback: lerCategoriasCallback) => {
+		axios.get<Categoria[]>('http://localhost:4000/categorias')
+		.then(res => callback(res.data))
 	},
 
-	lerTodasPrincipais: () => {
-		return categoriasMock.filter(categoria => categoria.idPai === null)
+	lerTodasPrincipais: (callback: lerCategoriasCallback) => {
+		axios.get<Categoria[]>('http://localhost:4000/categorias')
+		.then(res => callback(res.data.filter(categoria => categoria.idPai === null)))
 	},
 
 	lerTodasSubcategorias: (id: number) => {
