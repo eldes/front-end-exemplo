@@ -5,6 +5,8 @@ import CategoriasPage from './pages/Categorias'
 import CategoriaPage from './pages/Categoria'
 
 const App: FunctionComponent = () => {
+	require('dotenv').config()
+	
 	return (
 		<BrowserRouter>
 			<Routes>
