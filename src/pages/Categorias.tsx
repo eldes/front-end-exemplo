@@ -10,7 +10,7 @@ const CategoriasPage: FunctionComponent = () => {
 	
 	useEffect(() => {
 		categoriasService.lerTodasPrincipais(categorias => setCategorias(categorias))
-	})
+	}, [])
 
 	return (
 		
