@@ -9,6 +9,7 @@ type lerProdutosCallback = (produtos: Produto[]) => void
 
 const categoriasService = {
 	lerTodas: (callback: lerCategoriasCallback) => {
+		console.log(process.env)
 		axios.get<Categoria[]>(`${servicesConfig.host}/categorias`)
 		.then((res) => {
 			callback(res.data)
@@ -16,16 +17,19 @@ const categoriasService = {
 	},
 
 	lerTodasPrincipais: (callback: lerCategoriasCallback) => {
+		console.log(process.env)
 		axios.get<Categoria[]>(`${servicesConfig.host}/categorias?idPai=null`)
 		.then(res => callback(res.data.filter(categoria => categoria.idPai === null)))
 	},
 
 	ler: (id: number, callback: lerCategoriaCallback) => {
+		console.log(process.env)
 		axios.get<Categoria>(`${servicesConfig.host}/categorias/${id}`)
 		.then(res => callback(res.data))
 	},
 
 	lerProdutos: (id: number, callback: lerProdutosCallback) => {
+		console.log(process.env)
 		axios.get<Produto[]>(`${servicesConfig.host}/categorias/${id}/produtos`)
 		.then(({data: produtos}) => callback(produtos))
 	},
