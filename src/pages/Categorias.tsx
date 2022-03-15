@@ -19,7 +19,7 @@ const CategoriasPage: FunctionComponent = () => {
 			{
 				categorias.map( categoria =>
 					<li>
-						<NavLink to={`/categorias/${categoria.id}`}>{ categoria.nome }</NavLink>
+						<NavLink key={categoria.id} to={`/categorias/${categoria.id}`}>{ categoria.nome }</NavLink>
 					</li>
 				)
 			}
